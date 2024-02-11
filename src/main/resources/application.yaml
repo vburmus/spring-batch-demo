@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: batch-application
+server:
+  port: 8899
