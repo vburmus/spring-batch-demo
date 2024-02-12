@@ -1,4 +1,4 @@
-package com.vburmus.batch.car;
+package com.vburmus.batch.car.model;
 
 public enum Gearbox {
     MANUAL,

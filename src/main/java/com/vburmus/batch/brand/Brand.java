@@ -1,4 +1,4 @@
-package com.vburmus.batch.car.brand;
+package com.vburmus.batch.brand;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,6 +1,6 @@
-package com.vburmus.batch.car;
+package com.vburmus.batch.car.model;
 
-import com.vburmus.batch.car.brand.Brand;
+import com.vburmus.batch.brand.Brand;
 import com.vburmus.batch.city.City;
 import com.vburmus.batch.region.Region;
 import jakarta.persistence.*;
