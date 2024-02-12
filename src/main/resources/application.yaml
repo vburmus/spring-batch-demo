@@ -1,5 +1,21 @@
 spring:
   application:
     name: batch-application
-server:
-  port: 8899
+  batch:
+    jdbc:
+      initialize-schema: always
+  datasource:
+    batch:
+      url: ${BATCH_DB}
+      username: ${BATCH_USERNAME}
+      password: ${BATCH_PASSWORD}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    cars:
+      url: ${BUSINESS_DB}
+      username: ${BUSINESS_USERNAME}
+      password: ${BUSINESS_PASSWORD}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
