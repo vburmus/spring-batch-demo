@@ -21,20 +21,22 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id", nullable = false)
     private Brand brand;
     private String model;
     private BigDecimal price;
     private Float mileage;
+    @Enumerated(EnumType.STRING)
     private Gearbox gearbox;
     private Float engineCapacity;
+    @Enumerated(EnumType.STRING)
     private FuelType fuelType;
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id", nullable = false)
     private City city;
-    @OneToOne
-    @JoinColumn(referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "id",nullable = false)
     private Region region;
     private Integer productionYear;
 
@@ -73,5 +75,12 @@ public class Car {
                 .append(region)
                 .append(productionYear)
                 .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Car{brand=%s, model=%s,price=%f,mileage=%f,gearbox=%s,engineCapacity=%f,fuelType=%s, city=%s}",
+                brand,model,price,mileage,gearbox,engineCapacity,fuelType,city.getName());
     }
 }
