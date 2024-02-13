@@ -15,26 +15,21 @@ public class CarFieldSetMapper implements FieldSetMapper<CarDTO> {
 
         return CarDTO
                 .builder()
-                .brand(fieldSet.readString("brand"))
+                .brandName(fieldSet.readString("brand"))
                 .model(fieldSet.readString("model"))
                 .price(fieldSet.readFloat("price_in_pln"))
                 .mileage(parseMileage(fieldSet))
                 .gearbox(fieldSet.readString("gearbox"))
                 .engineCapacity(parseEngineCapacity(fieldSet))
-                .fuelType(fieldSet.readString("fuel_type"))
-                .city(fieldSet.readString("city"))
-                .region(fieldSet.readString("voivodeship"))
-                .year(fieldSet.readInt("year"))
+                .fuelTypeName(fieldSet.readString("fuel_type"))
+                .cityName(fieldSet.readString("city"))
+                .regionName(fieldSet.readString("voivodeship"))
+                .productionYear(fieldSet.readInt("year"))
                 .build();
     }
 
     private Float parseEngineCapacity(FieldSet fieldSet) {
-        try {
-            return replaceUnitFromFloat(fieldSet, "engine_capacity", "cm3");
-        } catch (NumberFormatException e) {
-            log.error("Error occurred while parsing engine capacity: {}", e.getMessage());
-        }
-        return 0F;
+        return replaceUnitFromFloat(fieldSet, "engine_capacity", "cm3");
     }
 
     private Float parseMileage(FieldSet fieldSet) {
