@@ -11,7 +11,6 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Region {
@@ -20,6 +19,9 @@ public class Region {
     private Integer id;
     private String name;
 
+    public Region(String name) {
+        this.name = name;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

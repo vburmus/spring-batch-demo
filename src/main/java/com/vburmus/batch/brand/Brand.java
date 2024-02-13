@@ -11,7 +11,6 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 @Entity
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Brand {
@@ -19,6 +18,10 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+    public Brand(String name) {
+        this.name = name;
+    }
 
     @Override
     public boolean equals(Object o) {
